@@ -1,9 +1,7 @@
 #include <iostream> 
-#include <random> 
 #include "ArrayQueue.h"	 
 
 using namespace std;
-using namespace System;
 
 
 int factorial(int num)

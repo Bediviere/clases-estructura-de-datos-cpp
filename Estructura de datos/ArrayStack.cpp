@@ -19,7 +19,7 @@ void ArrayStack::push(int value){
 }
 int ArrayStack::pop(){
     int valor = -1;
-    if(!empety()){
+    if(!empty()){
         valor = elementos[cantidad - 1];
         elementos[cantidad - 1] = -1;
         cantidad-=1;
@@ -28,7 +28,7 @@ int ArrayStack::pop(){
 }
 int ArrayStack::top(){
     int valor = -1;
-    if(!empety()){
+    if(!empty()){
         valor = elementos[cantidad - 1];
     }
     return valor;
@@ -36,6 +36,6 @@ int ArrayStack::top(){
 int ArrayStack::size(){
     return cantidad;
 }
-bool ArrayStack::empety(){
+bool ArrayStack::empty(){
     return cantidad == 0;
 }

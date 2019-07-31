@@ -73,7 +73,7 @@ int main()
 	int r = rand()% 11;
 	int N = 20;
 
-	IQueue *q1 = new ArrayQueue(20);
+	IQueue* q1 = new ArrayQueue(20);
 	for (int i = 0; i < N; i++)
 	{
 		int v = r;

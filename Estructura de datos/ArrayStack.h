@@ -13,5 +13,5 @@ public:
     int pop();
     int top();
     int size();
-    bool empety();
+    bool empty();
 };

@@ -1,21 +1,20 @@
 #include <iostream> 
-#include <random> 
+#include <time.h>
 #include "LinkedStack.h"	 
 
 using namespace std;
-using namespace System;
+
 
 void generateNumbers(int *numbers, int N) {
-	Random r;
-	int lim = 10;
+	srand(time(NULL));
 	for (int i = 0; i < N; i++)
 	{
-		numbers[i] = r.Next(0, lim);
+		int r = rand()%11;
+		numbers[i] = r;
 	}
 }
 
 void showNumbers(int *numbers, int N) {
-	Random r;
 	for (int i = 0; i < N; i++)
 	{
 		cout<< numbers[i] << " ";
@@ -26,8 +25,8 @@ void showNumbers(int *numbers, int N) {
 
 int mainStack()
 {
-	// para comprobar el funcionamiento de la implementación de la pila
-	// se va a hacer el ejercicio de generar varios números
+	// para comprobar el funcionamiento de la implementaciï¿½n de la pila
+	// se va a hacer el ejercicio de generar varios nï¿½meros
 	// mostrarlos por consola, despues invertirlos usando una pila y volverlos a mostrar
 	int N = 10;
 	int *numbers = new int[N];
@@ -35,8 +34,8 @@ int mainStack()
 	generateNumbers(numbers, N);
 	showNumbers(numbers, N);
 
-	// usando la implementación con elementos enlazado
-	// con el estudiante se debe realizar la implementación con arreglos
+	// usando la implementaciï¿½n con elementos enlazado
+	// con el estudiante se debe realizar la implementaciï¿½n con arreglos
 	IStack *stackDM = new LinkedStack();
 
 	// insertamos los elementos de arreglo en la pila
@@ -46,8 +45,8 @@ int mainStack()
 	}
 	
 	// los sacamos de la pila y lo mostramos
-	// como el modo de acceso a las pilas es de tipo LIFO (Last In, First Out, último en entrar, primero en salir)
-	// se empezara mostrando desde el último número hasta el primero
+	// como el modo de acceso a las pilas es de tipo LIFO (Last In, First Out, ï¿½ltimo en entrar, primero en salir)
+	// se empezara mostrando desde el ï¿½ltimo nï¿½mero hasta el primero
 	while (!stackDM->empty())
 	{
 		cout << stackDM->pop() << " ";
