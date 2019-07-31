@@ -1,10 +1,10 @@
 #include "IQueue.h"
 
 #pragma once
-/*Implementación de TDA colas usando arreglos
-se va a utilizar la técnica de cola circular,
-o sea, cuando se guarde un valor en la última posición
-pero en posiciones anteriores quedan espacios vacíos porque se habían liberado con el pop()
+/*Implementaciï¿½n de TDA colas usando arreglos
+se va a utilizar la tï¿½cnica de cola circular,
+o sea, cuando se guarde un valor en la ï¿½ltima posiciï¿½n
+pero en posiciones anteriores quedan espacios vacï¿½os porque se habï¿½an liberado con el pop()
 se empiezan a utilizar esos espacios nuevamente, de esta forma se puede utilizarn los N
 espacios del arreglo sin necesidad de estar consumiendo tiempo cambiando los elementos de posiciones
 

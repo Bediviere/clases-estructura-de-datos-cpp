@@ -70,12 +70,13 @@ int main()
 
 	cout << "Otro ejemplo con una cola de 20 elementos, se insertan y despues se recuperan" << endl;
 	
-	int r = rand()% 11;
+	
 	int N = 20;
 
 	IQueue* q1 = new ArrayQueue(20);
 	for (int i = 0; i < N; i++)
 	{
+		int r = rand()% 11;
 		int v = r;
 		q1->push(v);
 		cout << v << " ";
@@ -88,6 +89,7 @@ int main()
 
 	for (int i = 0; i < N; i++)
 	{
+		int r = rand()% 11;
 		int v = r;
 		q1->push(v);
 		cout << v << " ";

@@ -20,6 +20,7 @@ void LinkedQueue::push(int value){
         nback->seNext(nodeaux);
         nback = nodeaux;
     }
+    rsize++;
 }
 int LinkedQueue::pop(){
     int value = -1;
@@ -28,6 +29,7 @@ int LinkedQueue::pop(){
         Node* nodeaux = nfront; //se supone que se agarra la direccion del primer valor
         value = nodeaux->getVal(); //su valor tambien
         nfront = nodeaux->getNext(); //ahora nfront pasaria a ser el segundo valor 
+        rsize--;
     }
     else{
         //error
