@@ -1,9 +1,8 @@
 #include <iostream> 
-#include <random> 
-#include "ArrayQueue.h"	 
-
+#include <time.h>
+#include "ArrayQueue.h"
+#include "LinkedQueue.h"
 using namespace std;
-using namespace System;
 
 
 void showq(IQueue *gquiz)
@@ -18,8 +17,9 @@ void showq(IQueue *gquiz)
 
 int main()
 {
-	// se está utlizando la implementacion de cola con arreglos circular,
-	// en la clase hacer la implementación con nodos enlzadaos
+	// se estï¿½ utlizando la implementacion de cola con arreglos circular,
+	// en la clase hacer la implementaciï¿½n con nodos enlzadaos
+	srand(time(NULL));
 	IQueue *gquiz = new ArrayQueue(3);
 	
 	cout << "Insertando los valores 10 12 14" << endl;
@@ -69,12 +69,14 @@ int main()
 	cout << endl;
 
 	cout << "Otro ejemplo con una cola de 20 elementos, se insertan y despues se recuperan" << endl;
-	Random r;
+	
+	int r = rand()% 11;
 	int N = 20;
+
 	IQueue *q1 = new ArrayQueue(20);
 	for (int i = 0; i < N; i++)
 	{
-		int v = r.Next(0, 10);
+		int v = r;
 		q1->push(v);
 		cout << v << " ";
 	}
@@ -86,12 +88,13 @@ int main()
 
 	for (int i = 0; i < N; i++)
 	{
-		int v = r.Next(0, 10);
+		int v = r;
 		q1->push(v);
 		cout << v << " ";
 	}
 	cout << endl;
 	showq(q1);
+
 
 
 	delete gquiz;

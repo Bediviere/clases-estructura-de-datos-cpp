@@ -10,7 +10,7 @@ public:
 	virtual int pop() = 0;
 	virtual int top() = 0;
 	virtual int size() = 0;
-	virtual bool empty() = 0;
+	virtual bool empety() = 0;
 
 };
 
