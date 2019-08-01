@@ -30,7 +30,9 @@ public:
 	int back();
 	int size();
 	bool empty();
-
+	int GetIndexFrom();
+	int GetIndexBack();
+	int* GetValues();
 
 };
 

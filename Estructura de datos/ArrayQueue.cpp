@@ -10,7 +10,6 @@ ArrayQueue::ArrayQueue()
 	values = new int[N];
 }
 
-
 ArrayQueue::ArrayQueue(int N)
 {
 	this->N = N;
@@ -89,4 +88,13 @@ int ArrayQueue::size()
 bool ArrayQueue::empty()
 {
 	return rsize == 0;
+}
+int ArrayQueue::GetIndexFrom(){
+	return indexFrom;
+}
+int ArrayQueue::GetIndexBack(){
+	return indexBack;
+}
+int* ArrayQueue::GetValues(){
+	return values;
 }

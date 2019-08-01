@@ -14,7 +14,17 @@ void showq(IQueue *gquiz)
 	}
 	cout << endl;
 }
+/*Queria que esta funcion ShowCola recorra desde el From hasta el Back, pero falla, por ejemplo, al darle
+pop a 2 de los 3 elementos y querer volver a agregar nuevos numeros con push, 
 
+el fallo es que el show no muestra nada hasta que hayamos dado pop a todos 
+los elementos y volvamos a agregar con push desde cero*/
+void ShowCola(ArrayQueue* gquiz){ 
+	for(int i = gquiz->GetIndexFrom();i <= gquiz->GetIndexBack();i++){
+		cout<<gquiz->GetValues()[i]<<" ";
+	}
+	cout<<endl;
+}
 int main()
 {
 	// se est� utlizando la implementacion de cola con arreglos circular,
@@ -22,7 +32,47 @@ int main()
 	srand(time(NULL));
 	IQueue *gquiz = new ArrayQueue(3);
 	
-	cout << "Insertando los valores 10 12 14" << endl;
+	int opcion, n = NULL;
+	while(1){
+		
+		cout<<"\nElige una opcion"<<endl;
+		cout<<"1.- Push"<<endl;
+		cout<<"2.- Pop"<<endl;
+		cout<<"3.- Front"<<endl;
+		cout<<"4.- Back"<<endl;
+		cout<<"5.- Empty"<<endl;
+		cout<<"6.- Size"<<endl;
+		cout<<"7.- Show"<<endl;
+		cout<<"8.- Close"<<endl;
+		cout<<"Elige una opcion: ";cin>>opcion;
+		if(opcion == 1){
+			cout<<"Numero: ";cin>>n;gquiz->push(n);
+		}
+		else if(opcion == 2){
+			cout<<"Pop: "<<gquiz->pop()<<endl;
+		}
+		else if(opcion == 3){
+			cout<<"Front: "<<gquiz->front()<<endl;
+		}
+		else if(opcion == 4){
+			cout<<"Back: "<<gquiz->back()<<endl;
+		}
+		else if(opcion == 5){
+			cout<<"Empty: "<<gquiz->empty()<<endl;
+		}
+		else if(opcion == 6){
+			cout<<"Size: "<<gquiz->size()<<endl;
+		}
+		else if(opcion == 7){
+			//cout<<"Show: "<<endl;ShowCola((ArrayQueue*)gquiz);
+			cout<<"Show: "<<endl;showq(gquiz);
+			
+		}
+		else if(opcion == 8){
+			break;
+		}
+	}
+	/*cout << "Insertando los valores 10 12 14" << endl;
 	gquiz->push(10);
 	gquiz->push(12);
 	gquiz->push(14);
@@ -96,11 +146,11 @@ int main()
 	}
 	cout << endl;
 	showq(q1);
-
+*/
 
 
 	delete gquiz;
-	delete q1;
+	//delete q1;
 
 	system("pause");
 	return 0;
