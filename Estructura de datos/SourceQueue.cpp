@@ -19,18 +19,12 @@ pop a 2 de los 3 elementos y querer volver a agregar nuevos numeros con push,
 
 el fallo es que el show no muestra nada hasta que hayamos dado pop a todos 
 los elementos y volvamos a agregar con push desde cero*/
-void ShowCola(ArrayQueue* gquiz){ 
-	for(int i = gquiz->GetIndexFrom();i <= gquiz->GetIndexBack();i++){
-		cout<<gquiz->GetValues()[i]<<" ";
-	}
-	cout<<endl;
-}
 int main()
 {
 	// se est� utlizando la implementacion de cola con arreglos circular,
 	// en la clase hacer la implementaci�n con nodos enlzadaos
 	srand(time(NULL));
-	IQueue *gquiz = new ArrayQueue(3);
+	IQueue *gquiz = new LinkedQueue();
 	
 	int opcion, n = NULL;
 	while(1){
@@ -64,9 +58,7 @@ int main()
 			cout<<"Size: "<<gquiz->size()<<endl;
 		}
 		else if(opcion == 7){
-			//cout<<"Show: "<<endl;ShowCola((ArrayQueue*)gquiz);
 			cout<<"Show: "<<endl;showq(gquiz);
-			
 		}
 		else if(opcion == 8){
 			break;

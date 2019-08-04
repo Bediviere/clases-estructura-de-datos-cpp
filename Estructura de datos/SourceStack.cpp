@@ -1,12 +1,13 @@
 #include <iostream> 
 #include <time.h>
+#include "ArrayStack.h"
 #include "LinkedStack.h"	 
 
 using namespace std;
 
 
 void generateNumbers(int *numbers, int N) {
-	srand(time(NULL));
+	
 	for (int i = 0; i < N; i++)
 	{
 		int r = rand()%11;
@@ -23,11 +24,12 @@ void showNumbers(int *numbers, int N) {
 }
 
 
-int mainStack()
+int main()//mainStack
 {
 	// para comprobar el funcionamiento de la implementaci�n de la pila
 	// se va a hacer el ejercicio de generar varios n�meros
 	// mostrarlos por consola, despues invertirlos usando una pila y volverlos a mostrar
+	srand(time(NULL));
 	int N = 10;
 	int *numbers = new int[N];
 
