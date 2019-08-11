@@ -25,24 +25,26 @@ void LinkedList::add(int value){
 
 void LinkedList::add(int value, int index){
     int cont = 0;
-    Node* aux = new Node(value);
-    if (index == 0){
-            aux->seNext(top);
-            top = aux;
-    } else
-    if(index == cantidad){
-     add(value);
-    }    
-    else{
-        Node* newaux = top;
-        while(cont < index-1){
-           newaux = newaux->getNext();
-        }
-        aux->seNext(newaux->getNext());
-        newaux->seNext(aux);        
-    }
+	Node* newNode = new Node(value);
 
-cantidad+=1;
+	if (ValidIndex(index)) {
+
+		// si se quiere añadir al principio
+		if (index == 0) {
+			newNode->seNext(top);
+			top = newNode;
+		}
+		else {
+			// se obtiene el anterior a la posicion donde se quiere insertar
+			Node* aux = GetNode(index - 1);
+			// el nuevo nodo apuntara al que estaba anteriormente en esa posicion
+			newNode->seNext(aux->getNext());
+			// el anterior apuntara al nuevo node
+			aux->seNext(newNode);
+		}
+
+		cantidad += 1;
+	}// end si es valid index
     
 }
 
@@ -50,53 +52,40 @@ cantidad+=1;
 int LinkedList::remove(int index){
     int cont = 0;
 
-    if(index >= 0 && index < cantidad){
-        Node* aux = top;
-       
-        if(index == 0){
-            top = aux->getNext(); 
-            aux->seNext(nullptr);
-            delete aux;
-        } else {
+	if (ValidIndex(index) ) {
+		Node* aux = top;
 
-            while(cont < index - 1){
-            aux = aux->getNext();
-            cont++;
-            }
+		if (index == 0) {
+			top = aux->getNext();
+		}
+		else {
 
-            if(index == cantidad - 1){
-            next = aux;
-            next->seNext(nullptr);
-            
-            }else{ 
+			// se obtiene el nodo anterior al que se desea eliminar
+			Node* aux = GetNode(index - 1);
 
-            Node *aEliminar = aux->getNext();
-            aux->seNext(aEliminar->getNext());
-            }
-        }
-        cantidad-=1;
-    }
+			// si se desea eliminar el ultimo
+			if (index == cantidad- 1) {
+				// se establece que el ultimo es el nodo anterior al ultimo indice
+				next= aux;
+				next->seNext(nullptr);
+			}
+			else {
+				Node *aEliminar = aux->getNext();
+				aux->seNext(aEliminar->getNext());
+			}
+		}
+		cantidad -= 1;
+	}
 
 }
 int LinkedList::get(int index){
-    int cont = 0;
-
-    if(index >= 0 && index < cantidad){
-
-        Node* aux = top;
-      
-        while(cont < index){
-        aux = aux->getNext();
-        cont++;
-        }
-    return aux->getVal();
-    }else {
-        return -1;
-    }
-
-
-
-
+    if (ValidIndex(index)) {
+		Node* aux = GetNode(index);
+		return aux->getVal();
+	}
+	else {
+		return -1;
+	}
 }
 int LinkedList::size(){
     return cantidad;
@@ -104,4 +93,16 @@ int LinkedList::size(){
 bool LinkedList::empty(){
     return cantidad==0;
 
+}
+bool LinkedList::ValidIndex(int index) {
+	return index >= 0 && index < cantidad;
+}
+Node * LinkedList::GetNode(int index) {
+	int cont = 0;
+	Node* aux = top;
+	while (cont < index) {
+		aux = aux->getNext();
+		cont++;
+	}
+	return aux;
 }

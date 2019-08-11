@@ -39,7 +39,7 @@ int main()//mainStack
 	// usando la implementaci�n con elementos enlazado
 	// con el estudiante se debe realizar la implementaci�n con arreglos
 	IStack *stackDM = new LinkedStack();
-
+	IStack* Stackarr = new ArrayStack();
 	// insertamos los elementos de arreglo en la pila
 	for (int i = 0; i < N; i++)
 	{

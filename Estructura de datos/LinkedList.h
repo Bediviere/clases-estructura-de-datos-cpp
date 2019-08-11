@@ -6,6 +6,8 @@ class LinkedList : public IList
     int cantidad;
     Node* top;
     Node* next;
+    Node* GetNode(int Index);
+    bool ValidIndex(int index);
 public:
     LinkedList();
     ~LinkedList();
